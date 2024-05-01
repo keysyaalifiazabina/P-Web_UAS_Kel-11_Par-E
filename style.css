@@ -17,6 +17,93 @@ html{
 	-moz-scroll-behavior: smooth;
 }
 
+/* Overall body style */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Form body style */
+.form-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Form holder style */
+.form-holder {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px #000000;
+}
+
+/* Form content style */
+.form-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Form items style */
+.form-items {
+    width: 100%;
+}
+
+/* Style for the header links */
+.page-links a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Active link style */
+.page-links .active {
+    font-weight: bold;
+}
+
+/* Input fields style */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Button style */
+.ibtn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+/* Button hover effect */
+.ibtn:hover {
+    background-color: #0056b3;
+}
+
+/* Logo style */
+.logo {
+	width: 100%; 
+    text-align: center;
+}
+
+/* Adjust the size of the logo as needed */
+.logo img {
+    width: 150px; 
+    height: auto; 
+	display: block; 
+    margin: 0 auto;
+}
+
 .container{
 	width: 80%;
 	margin: 0px auto;
