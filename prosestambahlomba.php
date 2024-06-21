@@ -11,16 +11,17 @@ if (isset($_FILES['img'])) {
         $deskripsi = $_POST['deskripsi'];
         $vendor = $_POST['penyelenggara'];
         $kategori = $_POST['kategori'];
-        $jumlah = $_POST['jumlah_pst'];
         $jadwal = $_POST['jadwal'];
+        $tempat =$_POST['tempat'];
 
-        $query= "INSERT INTO tb_lomba(img,nama_lomba,deskripsi,penyelenggara,kategori,jumlah_pst,jadwal) 
-        VALUE ('$img','$lomba','$deskripsi','$vendor','$kategori','$jumlah','$jadwal')";
+        $query= "INSERT INTO tb_lomba(img,nama_lomba,deskripsi,penyelenggara,kategori,jadwal,tempat) 
+        VALUE ('$img','$lomba','$deskripsi','$vendor','$kategori','$jadwal','$tempat')";
 
         $hasil = mysqli_query($conn, $query);
 
         if ($hasil) {
-            header('location:lomba2.php');
+            echo "<script>alert('Lomba Berhasil Ditambahkan'); 
+         document.location.href='lomba2.php'; </script>";
         } else {
             echo "Input data Lomba Gagal!";
         }

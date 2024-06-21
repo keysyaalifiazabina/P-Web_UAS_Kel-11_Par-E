@@ -48,36 +48,7 @@ session_start();
 
 <div class="container-fluid">
   <div class="row">
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-      <div class="sidebar-sticky pt-3">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link active" href="home_admin.php">
-              <span data-feather="home"></span> HOMEPAGE USER
-              </span>
-            </a><hr>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="admin.php">
-              <span data-feather="file"></span> Data Admin</a><hr>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="user.php">
-              <span data-feather="users"></span>Data User</a><hr>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="vendor.php">
-              <span data-feather="bar-chart-2"></span>Data Vendor</a><hr>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="lomba.php">
-              <span data-feather="layers"></span>Data Lomba</a><hr>
-          </li>
-        </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
+  <?php require_once('include/menu_user.php') ?>
 
     <div class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -90,21 +61,21 @@ session_start();
               <div class="card-body">
                 <h5 class="card-title">Seni</h5>
                 <div class="display-4">5</div>
-                <a href="admin.php" class="btn btn-primary">Lihat</a>
+                <a href="viewseni.php" class="btn btn-primary">Lihat</a>
               </div>
             </div>
             <div class="card ml-4" style="width: 18rem;">
               <div class="card-body">
                 <h5 class="card-title">IT</h5>
                 <div class="display-4">10</div>
-                <a href="user.php" class="btn btn-primary">Lihat</a>
+                <a href="viewit.php" class="btn btn-primary">Lihat</a>
               </div>
             </div>
             <div class="card ml-4" style="width: 18rem;">
               <div class="card-body">
-                <h5 class="card-title">Design</h5>
+                <h5 class="card-title">E-Sport</h5>
                 <div class="display-4">10</div>
-                <a href="vendor.php" class="btn btn-primary">Lihat</a>
+                <a href="viewep.php" class="btn btn-primary">Lihat</a>
               </div>
             </div>
             </div>
@@ -113,7 +84,21 @@ session_start();
               <div class="card-body">
                 <h5 class="card-title">Business Plan</h5>
                 <div class="display-4">6</div>
-                <a href="lomba.php" class="btn btn-primary">Lihat</a>
+                <a href="viewbc.php" class="btn btn-primary">Lihat</a>
+              </div>
+            </div>
+            <div class="card ml-4" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Sport</h5>
+                <div class="display-4">6</div>
+                <a href="viewsport.php" class="btn btn-primary">Lihat</a>
+              </div>
+            </div>
+            <div class="card ml-4" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">UI/UX</h5>
+                <div class="display-4">6</div>
+                <a href="viewui.php" class="btn btn-primary">Lihat</a>
               </div>
             </div>
             </div>

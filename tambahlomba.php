@@ -57,21 +57,40 @@
                 <div class="form-group row">
                 <label for="penyelenggara" class="col-sm-1 col-form-label">Penyelenggara</label>
                 <div class="col-sm-3">
-                <input type="text" name="penyelenggara" class="form-control" placeholder="Penyelenggara">
+                    <select class="form-control" name="penyelenggara">
+                    <option value="" disabled selected hidden>Pilih kategori...</option>
+                        <option value="Hima Sifo">Hima Sifo</option>
+                        <option value="Hima Tifa">Hima Tifa</option>
+                        <option value="Hima Sada">Hima Sada</option>
+                        <option value="Hima Bisdig">Hima Bisdig</option>
+                        <option value="BEM Fasilkom">BEM Fasilkom</option>
+                    </select>
                 </div>
                 </div>
 
                 <div class="form-group row">
                 <label for="kategori" class="col-sm-1 col-form-label">Kategori</label>
                 <div class="col-sm-3">
-                <input type="text" name="kategori" class="form-control" placeholder="Kategori">
+                    <select class="form-control" name="kategori" placeholder="Kategori">
+                    <option value="" disabled selected hidden>Pilih kategori...</option>
+                        <option value="IT">IT</option>
+                        <option value="Seni">Seni</option>
+                        <option value="UI/UX">UI/UX</option>
+                        <option value="Business Plan">Business Plan</option>
+                        <option value="Sport">Sport</option>
+                        <option value="E-Sport">E-Sport</option>
+                    </select>
                 </div>
                 </div>
 
                 <div class="form-group row">
-                <label for="jumlah_pst" class="col-sm-1 col-form-label">Jumlah Peserta</label>
+                <label for="ktg_pst" class="col-sm-1 col-form-label">Kategori Peserta</label>
                 <div class="col-sm-3">
-                <input type="number" name="jumlah_pst" class="form-control" placeholder="Jumlah Peserta">
+                    <select class="form-control" name="ktg_pst">
+                    <option value="" disabled selected hidden>Pilih kategori...</option>
+                        <option value="Mahasiswa">Mahasiswa</option>
+                        <option value="Umum">Umum</option>
+                    </select>
                 </div>
                 </div>
 
@@ -82,7 +101,19 @@
                 </div>
                 </div>
 
+                <div class="form-group row">
+                <label for="tempat" class="col-sm-1 col-form-label">Tempat</label>
+                <div class="col-sm-3">
+                    <select class="form-control" name="tempat">
+                    <option value="" disabled selected hidden>Pilih kategori...</option>
+                        <option value="Online">Online</option>
+                        <option value="Offline">Offline</option>
+                    </select>
+                </div>
+                </div>
+
                 <button type="submit" class="btn btn-primary mb-1 mt-1 ml-0 mr-0" value="upload">Tambah</button>
+                
                 <a href="lomba2.php" class="btn btn-primary mb-1 mt-1 ml-0"><i class="fas fa-user-plus mr-0"></i>Kembali ke Dashboard</a>
             </form>
 <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

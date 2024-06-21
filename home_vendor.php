@@ -47,32 +47,7 @@ session_start();
 
 <div class="container-fluid">
   <div class="row">
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-      <div class="sidebar-sticky pt-3">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link active" href="home_vendor.php">
-              <span data-feather="home"></span> Dashboard Vendor 
-              </span>
-            </a><hr>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="lomba2.php">
-              <span data-feather="users"></span>Data Lomba</a><hr>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="bar-chart-2"></span>Riwayat Lomba</a><hr>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="layers"></span>Data Pendaftaran</a><hr>
-          </li>
-        </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
+  <?php require_once('include/menu_vendor.php') ?>
 
     <div class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -91,6 +66,7 @@ session_start();
             
       </div>
   </div>
+  
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
       <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.slim.min.js"><\/script>')</script>

@@ -48,23 +48,34 @@
             <div class="form-group row">
             <label for="penyelenggara" class="col-sm-1 col-form-label">Penyelenggara</label>
             <div class="col-sm-3">
-            <input type="text" name="penyelenggara" class="form-control" value="<?php echo $data['penyelenggara'] ?>" >
+            <input type="select" name="penyelenggara" class="form-control" value="<?php echo $data['penyelenggara'] ?>" >
             </div>
             </div>
             
             <div class="form-group row">
             <label for="kategori" class="col-sm-1 col-form-label">Kategori</label>
             <div class="col-sm-3">
-            <input type="text" name="kategori" class="form-control" value="<?php echo $data['kategori'] ?>">
+                <select class="form-control" name="kategori" value="<?php echo $data['kategori'] ?>" >
+                    <option value="IT">IT</option>
+                    <option value="Seni">Seni</option>
+                    <option value="UI/UX">UI/UX</option>
+                    <option value="Business Plan">Business Plan</option>
+                    <option value="Sport">Sport</option>
+                    <option value="E-Sport">E-Sport</option>
+                </select>
             </div>
-            </div>
+        </div>
 
-            <div class="form-group row">
-            <label for="jumlah_pst" class="col-sm-1 col-form-label">Jumlah Peserta</label>
+        <div class="form-group row">
+            <label for="ktg_pst" class="col-sm-1 col-form-label">Kategori Peserta</label>
             <div class="col-sm-3">
-            <input type="number" name="jumlah_pst" class="form-control" value="<?php echo $data['jumlah_pst'] ?>">
+                <select class="form-control" name="ktg_pst" value="<?php echo $data['ktg_pst'] ?>" >
+                    <option value="Mahasiswa">Mahasiswa</option>
+                    <option value="Umum">Umum</option>
+                </select>
             </div>
-            </div>
+        </div>
+
 
             <div class="form-group row">
             <label for="jadwal" class="col-sm-1 col-form-label">Jadwal</label>
@@ -72,6 +83,16 @@
             <input type="date" name="jadwal" class="form-control" value="<?php echo $data['jadwal'] ?>">
             </div>
             </div>
+
+            <div class="form-group row">
+            <label for="tempat" class="col-sm-1 col-form-label">Tempat</label>
+            <div class="col-sm-3">
+                <select class="form-control" name="tempat" value="<?php echo $data['tempat'] ?>" >
+                    <option value="Offline">Offline</option>
+                    <option value="Online">Online</option>
+                </select>
+            </div>
+        </div>
 
             <button type="submit" class="btn btn-primary mb-1 mt-1 ml-0 mr-0" value="Upload" >Update</button>
             <a href="lomba2.php" class="btn btn-primary mb-1 mt-1 ml-0"><i class="fas fa-user-plus mr-0"></i>Kembali</a>

@@ -1,6 +1,6 @@
 <?php 
     include_once ("koneksi.php");
-    $query= "SELECT * FROM tb_pengguna WHERE level='Admin'";
+    $query= "SELECT * FROM tb_lomba where kategori='UI/UX'";
     $hasil= mysqli_query ($conn, $query);
 ?>
 
@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="generator" content="Jekyll v4.1.1">
-    <title>Data admin</title>
+    <title>Kategori Lomba</title>
 
     <!-- Bootstrap core CSS -->
 <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -50,46 +50,48 @@
 
 <div class="container-fluid">
   <div class="row">
-  <?php require_once('include/menu_admin.php') ?>
+  <?php require_once('include/menu_user.php') ?>
 
     <div class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Data Admin</h1>
-        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">Admin</button>
+        <h1 class="h2">Kategori IT</h1>
+        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">User</button>
     </div>
-    <div class="float-right">
-			<a href="admin_pdf.php" target="_blank" class="btn btn-success"><i class="fa fa-file-pdf-o"></i> &nbsp PRINT</a>
-			<br>
-			<br>
-		</div>
     <div class="card-body">
-   <table class="table table-bordered table-striped table-hover">
+    <a href="home_user.php" class="btn btn-primary mb-1 mt-1 ml-0"><i class="fas fa-user-plus mr-0"></i>Kembali ke Dashboard</a>
+    <table class="table table-bordered table-striped table-hover">
     <tr>
         <th>No</th>
-        <th>Nama Lengkap</th>
-        <th>No Telepon</th>
-        <th> Alamat</th>
+        <th>Cover</th>
+        <th>Nama Lomba</th>
+        <th>Deskripsi</th>
+        <th>Penyelenggara</th>
+        <th>Kategori</th>
+        <th>Kategori Peserta</th>
+        <th>Jadwal</th>
+        <th>Tempat</th>
         <th>Aksi</th>
     </tr>
     <tbody>
         <?php $nomor=1; while ($data=mysqli_fetch_array ($hasil)){ ?> 
             <tr>
-                <th scope="row"> <?php echo $nomor; ?> </th> 
-                <td> <?php echo $data['nama_lengkap']; ?> </td>
-                <td> <?php echo $data['no_telp']; ?> </td>
-                <td> <?php echo $data['alamat']; ?> </td>
-             <td> <a href=#>Edit</a>
-                    | <a href=#>Delete</a> 
+                <th scope="row"> <?php echo $nomor; ?> </th>
+                <td> <img src="assets/cover/<?php echo $data['img'];?> " width="100" height="auto"> </td>
+                <td> <?php echo $data['nama_lomba']; ?> </td>
+                <td> <?php echo $data['deskripsi']; ?> </td>
+                <td> <?php echo $data['penyelenggara']; ?> </td>
+                <td> <?php echo $data['kategori']; ?> </td>
+                <td> <?php echo $data['ktg_pst']; ?> </td>
+                <td> <?php echo $data['jadwal']; ?> </td>
+                <td> <?php echo $data['tempat']; ?> </td>
+                <td> <a href="daftar.php?id=<?php echo $data['id_lomba'] ?>"class="btn btn-primary mb-1 mt-1">Daftar</a>
                 </td>
             </tr>
         <?php $nomor++; } ?>
     </tbody>
-    <table>
+    <t/table>
   </div>
-            
-      </div>
-  </div>
-</div>
+  
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
       <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="assets/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>

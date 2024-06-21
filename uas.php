@@ -5,6 +5,21 @@
 		<title>SIMBA</title>
 		<link rel="stylesheet" type="text/css" href="assets/dist/css/style.css">
 	</head>
+	<style>
+		.bg-full {
+			min-height: 760px;
+			background: url('assets/img/header.png') no-repeat right;
+		}
+
+		.bg-full-blog {
+			min-height: 600px;
+			background: url('assets/img/header.png') no-repeat right;
+		}
+		.bg-footer {
+			background: url('assets/img/footer.jpg') repeat right;
+			min-height: 440px;
+		}
+	</style>
 	<body id="top">
 		<header class="bg-full ovelay">
 			<nav class="navbar" id="navbar">

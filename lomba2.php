@@ -44,39 +44,14 @@
   <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
-      <a class="nav-link" href="#">Logout</a>
+      <a class="nav-link" href="logout.php">Logout</a>
     </li>
   </ul>
 </nav>
 
 <div class="container-fluid">
   <div class="row">
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-      <div class="sidebar-sticky pt-3">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link" href="home_vendor.php">
-              <span data-feather="home"></span> Dashboard Vendor 
-              </span>
-            </a><hr>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="lomba2.php">
-              <span data-feather="users"></span>Data Lomba</a><hr>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="bar-chart-2"></span>Riwayat Lomba</a><hr>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="layers"></span>Data Pendaftaran</a><hr>
-          </li>
-        </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <?php require_once('include/menu_vendor.php') ?>
 
     <div class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -97,8 +72,9 @@
         <th>Deskripsi</th>
         <th>Penyelenggara</th>
         <th>Kategori</th>
-        <th>Jumlah Peserta</th>
+        <th>Kategori Peserta</th>
         <th>Jadwal</th>
+        <th>Tempat</th>
         <th>Aksi</th>
     </tr>
     <tbody>
@@ -110,15 +86,16 @@
                 <td> <?php echo $data['deskripsi']; ?> </td>
                 <td> <?php echo $data['penyelenggara']; ?> </td>
                 <td> <?php echo $data['kategori']; ?> </td>
-                <td> <?php echo $data['jumlah_pst']; ?> </td>
+                <td> <?php echo $data['ktg_pst']; ?> </td>
                 <td> <?php echo $data['jadwal']; ?> </td>
+                <td> <?php echo $data['tempat']; ?> </td>
              <td> <a href="ubahlomba.php?id=<?php echo $data['id_lomba'] ?>">Edit</a>
              <a href="hapuslomba.php?id=<?php echo $data['id_lomba'] ?>">Delete</a>  
                 </td>
             </tr>
         <?php $nomor++; } ?>
     </tbody>
-    <table>
+    <t/table>
     <a href="tambahlomba.php" class="btn btn-primary mb-1 mt-1"><i class="fas fa-user-plus mr-2"></i>Tambah Lomba</a>
   </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

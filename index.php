@@ -54,12 +54,14 @@
   </div>
 
   <div class="form-label-group">
-    <select class="from-control" name="level">
+    <select class="form-control" name="level" placeholder="Level">
+        <option value="" disabled selected hidden>Pilih level...</option>
         <option value="Admin">Admin</option>
         <option value="User">User</option>
         <option value="Vendor">Vendor</option>
     </select>
-  </div>
+</div>
+
 
   <div class="checkbox mb-3">
     <label>

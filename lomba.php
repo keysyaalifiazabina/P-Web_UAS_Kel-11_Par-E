@@ -43,43 +43,14 @@
   <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
-      <a class="nav-link" href="#">Logout</a>
+      <a class="nav-link" href="logout.php">Logout</a>
     </li>
   </ul>
 </nav>
 
 <div class="container-fluid">
   <div class="row">
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-      <div class="sidebar-sticky pt-3">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link" href="home_admin.php">
-              <span data-feather="home"></span> Dashboard Admin <span class="sr-only">
-              </span>
-            </a><hr>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="admin.php">
-              <span data-feather="file"></span> Data Admin</a><hr>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="user.php">
-              <span data-feather="users"></span>Data User</a><hr>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="vendor.php">
-              <span data-feather="bar-chart-2"></span>Data Vendor</a><hr>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="lomba.php">
-              <span data-feather="layers"></span>Data Lomba</a><hr>
-          </li>
-        </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
+  <?php require_once('include/menu_admin.php') ?>
 
     <div class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -87,7 +58,7 @@
         <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">Admin</button>
     </div>
     <div class="card-body">
-   <table class="table table-bordered table-striped table-hover">
+    <table class="table table-bordered table-striped table-hover">
     <tr>
         <th>No</th>
         <th>Cover</th>
@@ -95,25 +66,26 @@
         <th>Deskripsi</th>
         <th>Penyelenggara</th>
         <th>Kategori</th>
-        <th>Jumlah Peserta</th>
+        <th>Kategori Peserta</th>
         <th>Jadwal</th>
+        <th>Tempat</th>
     </tr>
     <tbody>
         <?php $nomor=1; while ($data=mysqli_fetch_array ($hasil)){ ?> 
             <tr>
                 <th scope="row"> <?php echo $nomor; ?> </th>
-                <td> <img src="assets/cover/<?php echo $data['img'];?> " width="100" height="auto"> </td> 
+                <td> <img src="assets/cover/<?php echo $data['img'];?> " width="100" height="auto"> </td>
                 <td> <?php echo $data['nama_lomba']; ?> </td>
                 <td> <?php echo $data['deskripsi']; ?> </td>
                 <td> <?php echo $data['penyelenggara']; ?> </td>
                 <td> <?php echo $data['kategori']; ?> </td>
-                <td> <?php echo $data['jumlah_pst']; ?> </td>
+                <td> <?php echo $data['ktg_pst']; ?> </td>
                 <td> <?php echo $data['jadwal']; ?> </td>
-                </td>
+                <td> <?php echo $data['tempat']; ?> </td>
             </tr>
         <?php $nomor++; } ?>
     </tbody>
-    <t/table>
+    <table>
   </div>
   
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

@@ -1,16 +1,24 @@
 <?php 
     include_once ("koneksi.php");
-    $query= "SELECT * FROM tb_pengguna WHERE level='Admin'";
-    $hasil= mysqli_query ($conn, $query);
-?>
+    $sql = "SELECT tb_daftar.*, tb_lomba.* 
+        FROM tb_daftar 
+        INNER JOIN tb_lomba ON tb_daftar.id_lomba = tb_lomba.id_lomba 
+        WHERE tb_daftar.approval IS NULL";
 
+    $stmt = $pdo->prepare($sql); // prepare the query
+    $stmt->execute(); // execute the query
+
+    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="generator" content="Jekyll v4.1.1">
-    <title>Data admin</title>
+    <title>HOMEPAGE USER</title>
+
+    <!-- <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/"> -->
 
     <!-- Bootstrap core CSS -->
 <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -50,46 +58,49 @@
 
 <div class="container-fluid">
   <div class="row">
-  <?php require_once('include/menu_admin.php') ?>
+    <?php require_once('include/menu_vendor.php') ?>
 
     <div class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Data Admin</h1>
-        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">Admin</button>
+        <h1 class="h2">konfirmasi_pendaftaran</h1>
+        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">User</button>
     </div>
-    <div class="float-right">
-			<a href="admin_pdf.php" target="_blank" class="btn btn-success"><i class="fa fa-file-pdf-o"></i> &nbsp PRINT</a>
-			<br>
-			<br>
-		</div>
     <div class="card-body">
    <table class="table table-bordered table-striped table-hover">
     <tr>
         <th>No</th>
         <th>Nama Lengkap</th>
-        <th>No Telepon</th>
-        <th> Alamat</th>
-        <th>Aksi</th>
+        <th>Email</th>
+        <th>Nama Lomba</th>
+        <th>Penyelenggara</th>
+        <th>Kategori</th>
+        <th>Status</th>
     </tr>
     <tbody>
-        <?php $nomor=1; while ($data=mysqli_fetch_array ($hasil)){ ?> 
+        <?php foreach($data as $key => $value){ ?> 
+            <?php $id_dtr = $value['id_dtr']; ?>
             <tr>
-                <th scope="row"> <?php echo $nomor; ?> </th> 
-                <td> <?php echo $data['nama_lengkap']; ?> </td>
-                <td> <?php echo $data['no_telp']; ?> </td>
-                <td> <?php echo $data['alamat']; ?> </td>
-             <td> <a href=#>Edit</a>
-                    | <a href=#>Delete</a> 
+                <th scope="row"> <?php echo $key+1; ?> </th>
+                <td> <?php echo $value['nama_lengkap']; ?> </td>
+                <td> <?php echo $value['email']; ?> </td>
+                <td> <?php echo $value['nama_lomba']; ?> </td>
+                <td> <?php echo $value['penyelenggara']; ?> </td>
+                <td> <?php echo $value['kategori']; ?> </td>  
+                <td> 
+                    <?php 
+                        if (empty($value['approval'])) {
+                            echo '<a href="approval.php?id_dtr='.$id_dtr.'&approve=true" onclick="return confirm(\'Are you sure you want to approve this?\')">Approve</a> &nbsp;| ';
+                            echo '<a href="approval.php?id_dtr='.$id_dtr.'&approve=false" onclick="return confirm(\'Are you sure you want to reject this?\')">Rejected</a>';
+                        } else {
+                            echo ($value['approval'] == 1) ? 'approved' : 'rejected';
+                        }
+                    ?>
                 </td>
             </tr>
-        <?php $nomor++; } ?>
+        <?php } ?>
     </tbody>
-    <table>
+    <t/table>
   </div>
-            
-      </div>
-  </div>
-</div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
       <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="assets/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>

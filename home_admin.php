@@ -13,6 +13,10 @@ session_start();
 <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
+      #chart-container {
+          width: 75%;
+          height: auto;
+      }
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -47,41 +51,18 @@ session_start();
 
 <div class="container-fluid">
   <div class="row">
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-      <div class="sidebar-sticky pt-3">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link active" href="home_admin.php">
-              <span data-feather="home"></span> Dashboard Admin 
-              </span>
-            </a><hr>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="admin.php">
-              <span data-feather="file"></span> Data Admin</a><hr>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="user.php">
-              <span data-feather="users"></span>Data User</a><hr>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="vendor.php">
-              <span data-feather="bar-chart-2"></span>Data Vendor</a><hr>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="lomba.php">
-              <span data-feather="layers"></span>Data Lomba</a><hr>
-          </li>
-        </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
+  <?php require_once('include/menu_admin.php') ?>
 
     <div class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
       <h1 class="h2">Halo, <?= $_SESSION['nama_lengkap']?></h1>
-        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">Admin</button>
+        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">Admin></button>
+    </div>
+    <div class="row">
+        <div id="chart-container">
+        <h1 class="h2"> Data Banyaknya Pendaftar di Suatu Lomba</h1>
+        <canvas id="graphCanvas"></canvas>
+        </div>
     </div>
     <div class="row">
           <div class="card ml-4" style="width: 18rem;">
@@ -119,10 +100,55 @@ session_start();
       </div>
   </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-      <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
       <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
       <script src="assets/dist/dashboard.js"></script></body>
+      <script>
+        $(document).ready(function () {
+            showGraph();
+        });
+
+
+        function showGraph() {
+          $.post("chart_data.php", function(data) {
+              console.log(data); // Log the data to see if it's received correctly
+
+              var name = [];
+              var total = [];
+
+              // Process the JSON data
+              for (var i = 0; i < data.length; i++) {
+                  name.push(data[i].nama_lomba);
+                  total.push(data[i].total_entries);
+              }
+
+              var chartdata = {
+                  labels: name,
+                  datasets: [{
+                      label: 'Jumlah Pendaftar',
+                      backgroundColor: '#49e2ff',
+                      borderColor: '#46d5f1',
+                      hoverBackgroundColor: '#CCCCCC',
+                      hoverBorderColor: '#666666',
+                      data: total
+                  }]
+              };
+
+              // Get the canvas element where the chart will be rendered
+              var graphTarget = $("#graphCanvas");
+
+              // Ensure the canvas element exists
+              if (graphTarget.length) {
+                  var barGraph = new Chart(graphTarget, {
+                      type: 'bar',
+                      data: chartdata
+                  });
+              } else {
+                  console.error("Graph canvas element not found.");
+              }
+          }, "json"); // Specify "json" as the dataType for automatic JSON parsing
+      }
+      </script>
 </html>

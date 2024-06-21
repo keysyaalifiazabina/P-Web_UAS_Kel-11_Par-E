@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="generator" content="Jekyll v4.1.1">
-    <title>Data admin</title>
+    <title>Data User</title>
 
     <!-- Bootstrap core CSS -->
 <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -50,37 +50,7 @@
 
 <div class="container-fluid">
   <div class="row">
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-      <div class="sidebar-sticky pt-3">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link" href="home_admin.php">
-              <span data-feather="home"></span> Dashboard Admin <span class="sr-only">
-              </span>
-            </a><hr>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="admin.php">
-              <span data-feather="file"></span> Data Admin</a><hr>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="user.php">
-              <span data-feather="users"></span>Data User</a><hr>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="vendor.php">
-              <span data-feather="bar-chart-2"></span>Data Vendor</a><hr>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="lomba.php">
-              <span data-feather="layers"></span>Data Lomba</a><hr>
-          </li>
-        </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
+  <?php require_once('include/menu_admin.php') ?>
     <div class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Data User</h1>
